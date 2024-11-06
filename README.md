@@ -14,10 +14,6 @@ O agente utiliza um Scanner para receber e interpretar os comandos e preferênci
 
 O agente exibe a lista de gêneros e depois uma lista filtrada de filmes para o usuário, simulando a ação de um atuador.
 
-#### Mensagens de Feedback:
-
-Mensagens informando quando todos os filmes de um gênero foram recomendados e o ciclo de recomendações é reiniciado. Essas mensagens representam ações para manter o usuário informado sobre o status das recomendações.
-
 # Agente Baseado Em Modelo
 
 ### Sensores:
