@@ -1,11 +1,15 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 
-public class AgenteReativoSimples {
+public class AgenteBaseadoEmModelo {
 
-    public static void startAgenteReativoSimples(){
+    private static final Map<String, List<Filme>> historicoDeRecomendacoesPorGenero = new HashMap<>();
+
+    public static void startAgenteBaseadoEmModelo() {
         Scanner scanner = new Scanner(System.in);
         List<Filme> listaDeFilmes = new ArrayList<>();
         addFilmes(listaDeFilmes);
@@ -32,9 +36,7 @@ public class AgenteReativoSimples {
                 generoEscolhido = Integer.parseInt(input);
                 String genero = obterGeneroPorNumero(generoEscolhido);
                 if (genero != null) {
-                    // Recomendação de filmes
                     List<Filme> filmesFiltrados = recomendarFilmesPorGenero(listaDeFilmes, genero);
-                    // Permitir que o usuário selecione um filme
                     escolherFilme(filmesFiltrados, scanner);
                 } else {
                     System.out.println("Gênero inválido. Tente novamente.");
@@ -151,8 +153,7 @@ public class AgenteReativoSimples {
         try {
             int escolha = Integer.parseInt(input);
             if (escolha == 0) {
-                // Voltar ao menu de gêneros
-                return;
+                return; // Voltar ao menu de gêneros
             } else if (escolha > 0 && escolha <= filmesFiltrados.size()) {
                 Filme filmeEscolhido = filmesFiltrados.get(escolha - 1);
                 System.out.println("Você escolheu o filme: " + filmeEscolhido.getNome());
@@ -168,27 +169,39 @@ public class AgenteReativoSimples {
         List<Filme> filmesFiltrados = new ArrayList<>();
         Random random = new Random();
 
-        // Filtrando filmes pelo gênero
+        // Inicializa o histórico do gênero se ainda não existir
+        historicoDeRecomendacoesPorGenero.putIfAbsent(genero, new ArrayList<>());
+
+        // Filtrando filmes pelo gênero e removendo os já recomendados
         for (Filme filme : listaDeFilmes) {
-            if (filme.getGenero().equalsIgnoreCase(genero)) {
+            if (filme.getGenero().equalsIgnoreCase(genero) &&
+                    !historicoDeRecomendacoesPorGenero.get(genero).contains(filme)) {
                 filmesFiltrados.add(filme);
             }
         }
 
-        // Se houver filmes filtrados, selecionar até 10 aleatórios
-        List<Filme> filmesRecomendados = new ArrayList<>();
-        if (!filmesFiltrados.isEmpty()) {
-            int quantidadeParaRecomendar = Math.min(filmesFiltrados.size(), 5);
-            while (filmesRecomendados.size() < quantidadeParaRecomendar) {
-                Filme filmeAleatorio = filmesFiltrados.get(random.nextInt(filmesFiltrados.size()));
-                // Evitar duplicatas
-                if (!filmesRecomendados.contains(filmeAleatorio)) {
-                    filmesRecomendados.add(filmeAleatorio);
+        // Se todos os filmes já foram recomendados, reinicia o histórico para o gênero
+        if (filmesFiltrados.isEmpty()) {
+            System.out.println("Todos os filmes do gênero \"" + genero + "\" já foram recomendados. Reiniciando ciclo.");
+            historicoDeRecomendacoesPorGenero.get(genero).clear();
+            for (Filme filme : listaDeFilmes) {
+                if (filme.getGenero().equalsIgnoreCase(genero)) {
+                    filmesFiltrados.add(filme);
                 }
             }
-        } else {
-            System.out.println("Não há filmes no gênero \"" + genero + "\".");
         }
+
+        // Seleciona até 10 filmes aleatórios da lista filtrada
+        List<Filme> filmesRecomendados = new ArrayList<>();
+        int quantidadeParaRecomendar = Math.min(filmesFiltrados.size(), 5);
+        while (filmesRecomendados.size() < quantidadeParaRecomendar) {
+            Filme filmeAleatorio = filmesFiltrados.get(random.nextInt(filmesFiltrados.size()));
+            if (!filmesRecomendados.contains(filmeAleatorio)) {
+                filmesRecomendados.add(filmeAleatorio);
+                historicoDeRecomendacoesPorGenero.get(genero).add(filmeAleatorio); // Adiciona ao histórico do gênero
+            }
+        }
+
         return filmesRecomendados;
     }
 
