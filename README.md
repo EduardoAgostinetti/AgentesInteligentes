@@ -118,4 +118,23 @@ O agente calcula a pontuação dos filmes com base em fatores como popularidade 
 
 ### - Relatório:
 
-O Agente Baseado em Utilidade funciona solicitando o gênero preferido do usuário e recomendando 5 filmes. Ele considera o histórico de filmes assistidos e o perfil de preferências do usuário. Caso todos os filmes sejam recomendados, o agente reinicia o histórico e recalcula a utilidade para futuras recomendações. Em cada iteração, o objetivo é sempre selecionar as recomendações que potencialmente trarão maior satisfação ao usuário com base em suas preferências (Nesse caso, as preferencias seriam generos escolhidos, filmes escolhidos e atores dos filmes escolhidos).
+O Agente Baseado em Utilidade funciona solicitando o gênero preferido
+do usuário e recomendando 5 filmes. Ele considera o histórico de filmes
+assistidos e o perfil de preferências do usuário. Caso todos os filmes sejam recomendados,
+o agente reinicia o histórico e recalcula a utilidade para futuras recomendações.
+Em cada iteração, o objetivo é sempre selecionar as recomendações que potencialmente
+trarão maior satisfação ao usuário com base em suas preferências
+(Nesse caso, as preferencias seriam generos escolhidos, filmes escolhidos
+e atores dos filmes escolhidos).
+
+#### Características:
+
+##### Registra histórico e evita recomendações repetidas.
+##### Usa um sistema de pontuação para priorizar recomendações, considerando popularidade, histórico de visualizações e preferências (gênero, filmes e atores escolhidos).
+##### Recalcula a utilidade com base no feedback indireto do usuário, permitindo que as recomendações se tornem mais afinadas e potencialmente mais satisfatórias.
+
+#### Limitações:
+
+##### Exige mais dados para personalização eficaz: A precisão e eficácia dependem de um histórico considerável para aprender preferências do usuário com clareza.
+##### Sistemas de pontuação podem ser subjetivos: Definir a utilidade de filmes com base em popularidade e preferências pode ser desafiador, e algumas recomendações podem não ser ideais se a pontuação não refletir exatamente o gosto do usuário.
+##### Mais intensivo em processamento: Comparado aos outros agentes, requer mais lógica e cálculos, o que aumenta a complexidade de implementação e recursos necessários para execução.
