@@ -129,12 +129,16 @@ e atores dos filmes escolhidos).
 
 #### Características:
 
-##### Registra histórico e evita recomendações repetidas.
-##### Usa um sistema de pontuação para priorizar recomendações, considerando popularidade, histórico de visualizações e preferências (gênero, filmes e atores escolhidos).
-##### Recalcula a utilidade com base no feedback indireto do usuário, permitindo que as recomendações se tornem mais afinadas e potencialmente mais satisfatórias.
+Registra histórico e evita recomendações repetidas.
+
+Usa um sistema de pontuação para priorizar recomendações, considerando popularidade, histórico de visualizações e preferências (gênero, filmes e atores escolhidos).
+
+Recalcula a utilidade com base no feedback indireto do usuário, permitindo que as recomendações se tornem mais afinadas e potencialmente mais satisfatórias.
 
 #### Limitações:
 
-##### Exige mais dados para personalização eficaz: A precisão e eficácia dependem de um histórico considerável para aprender preferências do usuário com clareza.
-##### Sistemas de pontuação podem ser subjetivos: Definir a utilidade de filmes com base em popularidade e preferências pode ser desafiador, e algumas recomendações podem não ser ideais se a pontuação não refletir exatamente o gosto do usuário.
-##### Mais intensivo em processamento: Comparado aos outros agentes, requer mais lógica e cálculos, o que aumenta a complexidade de implementação e recursos necessários para execução.
+Exige mais dados para personalização eficaz: A precisão e eficácia dependem de um histórico considerável para aprender preferências do usuário com clareza.
+
+Sistemas de pontuação podem ser subjetivos: Definir a utilidade de filmes com base em popularidade e preferências pode ser desafiador, e algumas recomendações podem não ser ideais se a pontuação não refletir exatamente o gosto do usuário.
+
+Mais intensivo em processamento: Comparado aos outros agentes, requer mais lógica e cálculos, o que aumenta a complexidade de implementação e recursos necessários para execução.
