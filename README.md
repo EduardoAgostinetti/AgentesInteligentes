@@ -48,7 +48,26 @@ Mensagens informando quando todos os filmes de um gênero foram recomendados e o
 
 ### - Relatório:
 
-O Agente Baseado Em Modelo é executado solicitando uma lista de generos de filmes, onde o usuário irá esclher entre 1 a 8 ou quit, caso ele escolha um numero, o Agente vai recomendar 5 filmes aleatórios (Mas nesse agente, irá recomendar filmes diferentes, e salvar um historico de filmes que ja foram recomendados, caso o usuario solicite outra recomendação, ele não repetira os filmes, após acabar os filmes, ele vai limpar o historico e começar a recomendação novamente), então sempre que o usuario solicitar a recomendação o agente irá recomendar 5 filmes aleatórios, salvando em um historico de filmes recomendados, e caso haja uma nova solicitação, ele irá recomendar filmes diferentes dos anteriores, apenas irá repetir caso todos os filmes ja forem recomendados.
+O Agente Baseado Em Modelo é executado solicitando uma lista de generos de filmes,
+onde o usuário irá esclher entre 1 a 8 ou quit, caso ele escolha um numero,
+o Agente vai recomendar 5 filmes aleatórios (Mas nesse agente, irá recomendar filmes diferentes,
+e salvar um historico de filmes que ja foram recomendados, caso o usuario solicite outra recomendação,
+ele não repetira os filmes, após acabar os filmes, ele vai limpar o historico e começar a recomendação novamente),
+então sempre que o usuario solicitar a recomendação o agente irá recomendar 5 filmes aleatórios,
+salvando em um historico de filmes recomendados, e caso haja uma nova solicitação,
+ele irá recomendar filmes diferentes dos anteriores, apenas irá repetir caso todos os filmes ja forem recomendados.
+
+#### Características:
+
+- Armazena o histórico de recomendações, evitando repetição de filmes até que todos os títulos de um gênero tenham sido exibidos.
+
+- Quando todos os filmes do gênero já foram recomendados, o agente reinicia o histórico.
+
+#### Limitações:
+
+Personalização limitada: Embora evite repetições, ele ainda não considera as preferências mais específicas do usuário.
+Responde apenas ao histórico: As recomendações são melhores que as do agente simples, mas ainda são limitadas por não adaptarem a recomendação com base em escolhas específicas do usuário (como atores preferidos ou popularidade).
+Ciclo repetitivo: Após recomendar todos os filmes de um gênero, reinicia a lista sem variar as sugestões com base no comportamento do usuário.
 
 # Agente Baseado em Objetivo
 
@@ -83,7 +102,24 @@ O agente fornece feedback ao usuário, como: "Baseado em sua escolha, recomendam
 
 ### - Relatório:
 
-O Agente Baseado em Objetivo guia o usuário a escolher um filme, e após essa escolha, o agente passa a recomendar outros filmes com as mesmas características (gênero e ator principal). Quando o usuário solicita recomendações, o agente sugere cinco filmes com o ator e o gênero do filme escolhido anteriormente, até que o usuário esteja satisfeito com as sugestões. Caso o agente esgote as recomendações com essas características, ele pode recomeçar o ciclo de recomendações ou pedir ao usuário para selecionar um novo gênero.
+O Agente Baseado em Objetivo guia o usuário a escolher um filme, e após essa escolha,
+o agente passa a recomendar outros filmes com as mesmas características (gênero e ator principal). Quando o usuário solicita recomendações, o agente sugere cinco filmes com o ator e o gênero do filme escolhido anteriormente, até que o usuário esteja satisfeito com as sugestões. Caso o agente esgote as recomendações com essas características, ele pode recomeçar o ciclo de recomendações ou pedir ao usuário para selecionar um novo gênero.
+
+#### Características:
+
+- Armazena o histórico de recomendações e evita duplicação.
+
+- Ao escolher um filme, o agente passa a recomendar outros filmes do mesmo gênero e com o mesmo ator, para refinar a seleção e aumentar a chance de satisfação.
+
+- Fornece feedback sobre o status das recomendações, informando quando esgota filmes e precisa reiniciar.
+
+#### Limitações:
+
+- Objetivo limitado a curto prazo: O agente baseia-se na última escolha do usuário (gênero e ator) e não maximiza a experiência de longo prazo com uma visão holística do que o usuário gosta.
+
+- Atores e gêneros limitam a seleção: Se as opções com um ator ou gênero forem escassas, o agente pode ficar sem recomendações relevantes, ou o usuário pode se sentir limitado.
+
+- Complexidade crescente com preferências complexas: Esse agente ainda não considera popularidade ou feedback direto do usuário, ficando restrito a preferências imediatas e rastreio de atores e gêneros.
 
 # Agente Baseado em Utilidade
 ### - Sensores:
