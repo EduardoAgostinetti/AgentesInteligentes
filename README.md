@@ -112,7 +112,7 @@ Inicialmente, o agente exibe uma lista de gêneros para o usuário escolher. Ap�
 
 O agente seleciona e exibe filmes não recomendados anteriormente, atuando na apresentação de novos conteúdos de acordo com a escolha do gênero do usuário.
 
-### Recomendações de Filmes Baseadas na popularidade:
+#### Recomendações de Filmes Baseadas na popularidade:
 
 O agente calcula a pontuação dos filmes com base em fatores como popularidade no gênero, histórico de visualizações e preferência do usuário. Filmes com pontuações mais altas são priorizados nas recomendações.
 
