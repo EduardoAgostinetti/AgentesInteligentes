@@ -16,7 +16,27 @@ O agente exibe a lista de gêneros e depois uma lista filtrada de filmes para o 
 
 ### - Relatório:
 
-O Agente Reativo Simples é executado solicitando uma lista de generos de filmes, onde o usuário irá esclher entre 1 a 8 ou quit, caso ele escolha um numero, o Agente vai recomendar 5 filmes aleatórios (Podendo ser filmes repetidos e sem salvar um histórico de filmes recomendados), então sempre que o usuario solicitar a recomendação o agente apenas irá recomendar 5 filmes aleatórios, podendo ou não repetir esses filmes.
+O Agente Reativo Simples é executado solicitando uma lista de generos de filmes,
+onde o usuário irá esclher entre 1 a 8 ou quit, caso ele escolha um numero,
+o Agente vai recomendar 5 filmes aleatórios (Podendo ser filmes repetidos e
+sem salvar um histórico de filmes recomendados), então sempre que o usuario solicitar
+a recomendação o agente apenas irá recomendar 5 filmes aleatórios, podendo ou não repetir esses filmes.
+
+#### Características:
+
+- Funciona com base em estímulos imediatos, ou seja, responde ao comando do usuário sem considerar informações passadas. 
+
+- Exibe uma lista de gêneros e, ao escolher um, recomenda 5 filmes aleatórios do gênero selecionado.
+
+- Não guarda histórico; filmes podem ser repetidos frequentemente.
+
+#### Limitações:
+
+- Ausência de histórico: Recomendação pode incluir filmes que já foram sugeridos antes, o que pode ser frustrante para o usuário.
+
+- Falta de personalização: Não aprende preferências do usuário; sempre exibe recomendações aleatórias, sem considerar escolhas anteriores.
+
+- Baixa satisfação: Pode não agradar usuários que procuram recomendações mais focadas e variadas.
 
 # Agente Baseado Em Modelo
 
@@ -65,9 +85,11 @@ ele irá recomendar filmes diferentes dos anteriores, apenas irá repetir caso t
 
 #### Limitações:
 
-Personalização limitada: Embora evite repetições, ele ainda não considera as preferências mais específicas do usuário.
-Responde apenas ao histórico: As recomendações são melhores que as do agente simples, mas ainda são limitadas por não adaptarem a recomendação com base em escolhas específicas do usuário (como atores preferidos ou popularidade).
-Ciclo repetitivo: Após recomendar todos os filmes de um gênero, reinicia a lista sem variar as sugestões com base no comportamento do usuário.
+- Personalização limitada: Embora evite repetições, ele ainda não considera as preferências mais específicas do usuário.
+
+- Responde apenas ao histórico: As recomendações são melhores que as do agente simples, mas ainda são limitadas por não adaptarem a recomendação com base em escolhas específicas do usuário (como atores preferidos ou popularidade).
+
+- Ciclo repetitivo: Após recomendar todos os filmes de um gênero, reinicia a lista sem variar as sugestões com base no comportamento do usuário.
 
 # Agente Baseado em Objetivo
 
